@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 px-1 bg-info text-white min-vh-100">
+            <div class="sticky-top flex-grow-1">
+                <div class="nav flex-sm-column flex-nowrap text-right" id="sidebar">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+        <form name="mainForm" action="submit" method="get"><div class="col" id="main">
+                    <h1>Candidates</h1>
+            <div class='col-md-12'>
+                    <label for="name">Your Name:</label>
+                    <input required type="text" name="name" class="name-field" />
+                <br/><small>Add <em>?name=YourName</em> to url for this to auto-fill.</small>
+                    <input type="hidden" class="targetId" name="targetId">
+                </div>
+        </div>
+        <div class="col-md-12", id="submitSection">
+            <hr />
+            <input type="submit" value="Submit">
+            <p>Are you offline? Save the link below and load it later:</p>
+            <textarea disabled class="urlsubmit"></textarea>
+        </div>
+            <div style="height:600px">.</div>
+            </form></div>
+    </div>
+</div>
+      
+<script id="blurb-template" type="text/x-custom-template">
+    <div class="blurb">
+        <span class="title-line"><h2><span class="title">Title</span></h2></span>
+        <div>
+            Author: <span class="author"></span><br />
+            <span class="oclc_num-line">OCLC: <span class="oclc_num"></span></span>|
+            <span class="lccn-line">LCCN: <span class="lccn"></span></span><br/>
+            <span class="isbn-line">ISBN: <span class="isbn"></span></span>|
+            <span class="issn-line">ISSN: <span class="issn"></span></span>|
+            <br />
+            <span class="description-line">Description: <span class="description"></span></span><br />
+            <span class="rights_date_used-line">Date: <span class="rights_date_used"></span></span><br />
+            <span class="page_count-line"># of Pages: <span class="page_count"></span></span><br />
+            <div class="col-md-12">
+                <div class='image-controls'><button tabindex="-1" class='btn btn-primary prependImage'>‹‹</button>Add Images<button  tabindex="-1" class='btn btn-primary appendImage'>››</button></div>
+                <div class='image-box flex-row flex-nowrap'>
+                    <button type="button" tabindex="-1" class="btn btn-primary imagelink">Load Images</button>
+                </div>
+                
+            </div>
+            
+            <div class="row ratings">
+                <div class="col-md-6">
+                    <label>Judgment</label> <small><a tabindex="-1" href="https://docs.google.com/document/d/1Q2F4vqQHsEnERwhr0UPdNEWVT_N9BnzjMuzo7SwOBfs/edit?usp=sharing">(Codebook)</a></small>
+                    <select required class="judgment form-control">
+                        <option disabled selected value> -- select option -- </option>
+                        <option>SWSM - same work same manifestation</option>
+                        <option>SWDM - same work different manifestation</option>
+                         <option>SWDE - same work different expression</option>
+                         <option>WP_DV - whole/part different volume</option>
+                          <option>PARTOF - Candidate is part of Target</option>
+                          <option>CONTAINS - Candidate contains Target</option>
+                         <option>AUTHOR - Same author, different work</option>
+                         <option>DIFF - Different work, different author (no relation)</option>
+                         <option>TO_DISCUSS - Needs lab discussion, oddity</option>
+                         <option>UNKNOWN - Can't determine with info available </option>
+                         <option>Other</option>
+                    </select>
+                 </div>
+                 <div class='col-md-6'>
+                    <label>Notes</label>
+                    <input type="text" class="notes form-control" tabindex="-1">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="js/script.js" type="text/javascript"></script>
+    </body>
+</html>

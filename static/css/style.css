@@ -1,0 +1,17 @@
+.target {
+   background-color: lightgrey;   
+}
+
+.image-box {
+    overflow-y: scroll;
+}
+
+.image-controls {
+    display: none;
+}
+
+.image-box img {
+    padding: 2px;
+    object-fit: cover;
+    height: 200px;
+}
