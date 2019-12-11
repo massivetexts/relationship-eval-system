@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-sm-6">
-        <form name="mainForm" action="submit" method="get"><div class="col" id="main">
+        <form name="mainForm" action="submit" method="get"><div id="main">
                     <h1>Candidates</h1>
             <div class='col-md-12'>
                     <label for="name">Your Name:</label>
@@ -55,7 +55,7 @@
             <span class="rights_date_used-line">Date: <span class="rights_date_used"></span></span><br />
             <span class="page_count-line"># of Pages: <span class="page_count"></span></span><br />
             <div class="col-md-12">
-                <div class='image-controls'><button tabindex="-1" class='btn btn-primary prependImage'>‹‹</button>Add Images<button  tabindex="-1" class='btn btn-primary appendImage'>››</button></div>
+                <div class='image-controls'><button tabindex="-1" class='btn btn-primary prependImage' type="button">‹‹</button>Add Images<button type="button"  tabindex="-1" class='btn btn-primary appendImage'>››</button></div>
                 <div class='image-box flex-row flex-nowrap'>
                     <button type="button" tabindex="-1" class="btn btn-primary imagelink">Load Images</button>
                 </div>
@@ -67,17 +67,17 @@
                     <label>Judgment</label> <small><a tabindex="-1" href="https://docs.google.com/document/d/1Q2F4vqQHsEnERwhr0UPdNEWVT_N9BnzjMuzo7SwOBfs/edit?usp=sharing">(Codebook)</a></small>
                     <select required class="judgment form-control">
                         <option disabled selected value> -- select option -- </option>
-                        <option>SWSM - same work same manifestation</option>
-                        <option>SWDM - same work different manifestation</option>
-                         <option>SWDE - same work different expression</option>
-                         <option>WP_DV - whole/part different volume</option>
-                          <option>PARTOF - Candidate is part of Target</option>
-                          <option>CONTAINS - Candidate contains Target</option>
-                         <option>AUTHOR - Same author, different work</option>
-                         <option>DIFF - Different work, different author (no relation)</option>
-                         <option>TO_DISCUSS - Needs lab discussion, oddity</option>
-                         <option>UNKNOWN - Can't determine with info available </option>
-                         <option>Other</option>
+                        <option value="SWSM">SWSM - same work same manifestation</option>
+                        <optioni value="SWDM">SWDM - same work different manifestation</option>
+                         <option value="SWDE">SWDE - same work different expression</option>
+                         <option value="WP_DV">WP_DV - whole/part different volume</option>
+                          <option value="PARTOF">PARTOF - Candidate is part of Target</option>
+                          <option value="CONTAINS">CONTAINS - Candidate contains Target</option>
+                         <option value="AUTHOR">AUTHOR - Same author, different work</option>
+                         <option value="DIFF">DIFF - Different work, different author (no relation)</option>
+                         <option value="TO_DISCUSS">TO_DISCUSS - Needs lab discussion, oddity</option>
+                         <option value="UNKNOWN">UNKNOWN - Can't determine with info available </option>
+                         <option value="Other">Other</option>
                     </select>
                  </div>
                  <div class='col-md-6'>

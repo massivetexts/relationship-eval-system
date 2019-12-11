@@ -11,7 +11,13 @@
 }
 
 .image-box img {
-    padding: 2px;
+    padding: 1px;
+    margin: 1px;
+    border: solid 1px lightgray;
     object-fit: cover;
     height: 200px;
+}
+
+html {
+	font-size:10px;
 }

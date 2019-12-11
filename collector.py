@@ -25,8 +25,8 @@ def css_unescape(htid):
     return id_decode(unescaped)
 
 def get_htid_list():
-    files = glob.glob('data/*')
-    clean_htids = [file.replace('data/', '').replace('.json', '') for file in files]
+    files = glob.glob(app.root_path + '/data/*')
+    clean_htids = [file.split('data/')[1].replace('.json', '') for file in files]
     return [id_decode(htid) for htid in clean_htids]
 
 def request_as_df(batch):
@@ -52,7 +52,7 @@ def request_as_df(batch):
               }
         rows.append(row)
 
-    df = pd.DataFrame(rows)[['rater', 'target', 'candidate', 'judgment', 'notes']]
+    df = pd.DataFrame(rows)[['rater', 'target', 'candidate', 'judgment', 'notes', 'timestamp']]
     return df
 
 def rating_url(htid, rater=None):
@@ -88,10 +88,10 @@ def print_target_counts(rater_targets, rater=None, n=1000):
 def print_recently_rated(rater_targets, n=5):
     return rater_targets.sort_values('timestamp', ascending=False).head(n).to_html()
     
-def load_results(pathglob='results.*.csv', drop_duplicates=True):
+def load_results(pathglob='results/results.*.csv', drop_duplicates=True):
     colnames = ['rater', 'target', 'candidate', 'judgment', 'notes', 'timestamp']
     try:
-        all_df = [pd.read_csv(path, names=colnames) for path in glob.glob(pathglob)]
+        all_df = [pd.read_csv(path, names=colnames) for path in glob.glob(app.root_path + '/' + pathglob)]
         df = pd.concat(all_df)
     except:
         df = pd.DataFrame([], columns=colnames)
@@ -117,13 +117,15 @@ def submit():
     if len(input) > 1:
         try:
             formatted = request_as_df(input)
-            formatted.to_csv('results.csv', mode='a', header=False)
+            formatted.to_csv(app.root_path + '/results/results.0.csv', mode='a', header=False)
             response += "Submitted! Below is the data you submitted. "
             response += "If you need something fixed later, you can save this for reference:<hr />"
+        except IOError:
+            response += "<h1>IO Error. Dr. O screwed something up, let him know.</h1>"
         except:
             response += "<h1>Nothing submitted due to error.</h1>If unexpected,"
             response += "</h1>Save this string somewhere for Dr. O to inspect:<br/>"
-        response += "<em>{}</em>".format(input)
+        response += "<textarea>{}</textarea>".format(input)
         
     df, rater_targets = load_results()  
         
@@ -138,7 +140,7 @@ def submit():
     
     return response
 
-@app.route("/stats")
+@app.route("/")
 def stats():
     name = request.args.get('name')
     response = "<h1>Info</h1>"
