@@ -66,7 +66,7 @@ def rating_url(htid, rater=None):
     return url
 
 def get_target_counts(rater_targets):
-    target_counts = rater_targets.target.value_counts()
+    target_counts = rater_targets.target.apply(id_decode).value_counts()
     htids = get_htid_list()
     no_ratings = [htid for htid in htids if htid not in target_counts.index]
     no_ratings = pd.Series([0] * len(no_ratings), index=no_ratings)
