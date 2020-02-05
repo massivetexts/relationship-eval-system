@@ -90,10 +90,10 @@ function draw_vol(vol, target, appendTo="#main", isTarget=false) {
             that.hide();
             
             that.parents(".image-box").css('height', '204px');
-            el.data('first', 10);
+            el.data('first', 8);
             el.data('last', 13);
             
-            $.each([10,11, 12, 13], function(i,seq) { 
+            $.each([8, 9, 10,11, 12, 13], function(i,seq) { 
                 $img = create_image(vol.htid, seq, 150);
                 that.parent().append($img);
             });
